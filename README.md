@@ -1,3 +1,26 @@
+# Site Web - Ébénisterie Jean-Sébastien
+
+Projet personnel de développement web pour créer un site vitrine professionnel pour une entreprise d’ébénisterie.
+
+## 📌 Objectif
+- Démontrer mes compétences en développement web (HTML/CSS/JS ou framework)
+- Apporter une solution concrète et fonctionnelle à une vraie entreprise
+
+## 🚧 Statut
+En développement – mise à jour hebdomadaire avec les avancements
+
+## 🛠️ Technologies
+- React/Vite
+- GitHub pour le versionnement
+- Hébergement prévu : GitHub Pages ou Netlify
+
+## 🖼️ Aperçu (à venir)
+Captures d'écran
+
+## 📁 Structure du projet
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
