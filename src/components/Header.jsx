@@ -38,7 +38,7 @@ function Header() {
           fontSize: "1.1rem"
         }}>
             <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/">À propos</Link></li>
+            <li><a href="#a-propos">À propos</a></li>
             <li><Link to="/realisations">Réalisations</Link></li>
             <li><Link to="/contact">Contact</Link></li>
         </ul>
