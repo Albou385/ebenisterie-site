@@ -1,8 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -39,4 +41,27 @@
 
 .read-the-docs {
   color: #888;
+}
+
+header {
+    width: 100vw; /* ou width: 100% si #root n'est pas limité */
+    min-width: 100vw;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    margin: 0; /* très important si jamais il y a un margin auto */
+    left: 0;
+    right: 0;
+    position: relative; /* seulement si nécessaire, sinon laisser par défaut */
+    background: #2a75c8; /* ton bleu si tu veux une bande bleue */
+}
+
+footer {
+    width: 100vw;
+    min-width: 100vw;
+    box-sizing: border-box;
+    /* tes autres styles */
 }

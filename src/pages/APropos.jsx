@@ -1,4 +1,13 @@
-function Accueil() {
-  return <div>Page d’accueil</div>;
+// src/pages/APropos.jsx
+
+import React from 'react';
+
+function APropos() {
+  return (
+    <div>
+      {/* Page À propos vide pour l'instant */}
+    </div>
+  );
 }
-export default Accueil;
+
+export default APropos;
