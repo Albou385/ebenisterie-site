@@ -48,3 +48,54 @@ footer {
 .read-the-docs {
   color: #888;
 }
+
+.hero-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2.5em;
+  margin: 2em 0;
+}
+
+.hero-section__texte {
+  flex: 0 1 48%;
+  min-width: 0;
+  max-width: 520px;
+}
+
+.hero-image {
+  flex: 0 0 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.hero-image img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 0.7em;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  .hero-section__texte {
+    max-width: 100%;
+    width: 100%;
+  }
+  .hero-image {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-start;
+  }
+  .hero-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+  }
+}
