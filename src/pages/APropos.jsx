@@ -1,12 +1,13 @@
 // src/pages/APropos.jsx
 
 import React from 'react';
+import Container from "../components/Container";
 
 function APropos() {
   return (
-    <div>
+    <Container>
       {/* Page À propos vide pour l'instant */}
-    </div>
+    </Container>
   );
 }
 
