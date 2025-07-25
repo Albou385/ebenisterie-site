@@ -3,7 +3,7 @@ function Container({ children }) {
     <div style={{
       width: "100%",
       maxWidth: "1200px",
-      minHeight: "100vh",
+      minHeight: "60vh",
       margin: "0 auto",
       padding: "0 2vw",
       boxSizing: "border-box",

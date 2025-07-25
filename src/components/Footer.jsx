@@ -2,10 +2,24 @@
 
 import logo from '../assets/logo.png';
 import { Mail, Phone, Facebook } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Scroll fluide vers le haut si déjà sur la page d'accueil
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
-    <footer style={{ marginTop: "2rem", background: "#62b9fb", paddingTop: "2rem", paddingBottom: "1rem", color: "#fff" }}>
+    <footer style={{ marginTop: 0, background: "#62b9fb", paddingTop: 0, paddingBottom: "1rem", color: "#fff" }}>
       <div style={{
         display: "flex",
         justifyContent: "space-between",
@@ -14,20 +28,22 @@ function Footer() {
         margin: "0 auto",
         padding: "0 2rem"
       }}>
-        {/* Bloc 1 - Logo */}
+        {/* Bloc 1 - Logo interactif */}
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{
-            background: "rgba(248,245,238,0.2)",
-            borderRadius: "50%",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
-            padding: 12,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            marginBottom: 0
-          }}>
-            <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: 120, height: 120}} />
-          </div>
+          <a href="/" onClick={handleLogoClick} style={{ cursor: 'pointer', display: 'inline-block', border: 'none', background: 'none', outline: 'none' }}>
+            <div style={{
+              background: "rgba(248,245,238,0.2)",
+              borderRadius: "50%",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+              padding: 12,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              marginBottom: 0
+            }}>
+              <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: 110, height: 110 }} />
+            </div>
+          </a>
         </div>
         {/* Bloc 2 - Contact */}
         <div style={{ flex: 1, textAlign: "center" }}>
@@ -47,7 +63,7 @@ function Footer() {
         </div>
         {/* Bloc 3 - Réseaux sociaux */}
         <div style={{ flex: 1, textAlign: "right" }}>
-          <div style={{ fontWeight: "bold", marginBottom: 8, color: "#fff" }}>Suivez-nous</div>
+          <div style={{ fontWeight: "bold", marginBottom: 8, color: "#fff" }}>Suivez-moi</div>
           <a
             href="https://www.facebook.com/profile.php?id=61559830014070&locale=fr_CA"
             target="_blank"

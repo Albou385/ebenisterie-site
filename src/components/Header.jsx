@@ -1,10 +1,11 @@
 // src/components/Header.jsx
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import { useEffect, useState } from 'react';
 
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,10 +19,67 @@ function Header() {
   // Hauteurs et tailles adaptées pour garder tout centré et contenu
   const headerHeight = scrolled ? 84 : 120;
   const logoSize = scrolled ? 60 : 90;
-  const logoPadding = scrolled ? 8 : 16;
-  const fontSizeTitle = scrolled ? "1.5rem" : "2.2rem";
-  const fontSizeSlogan = scrolled ? "1rem" : "1.15rem";
+  const logoPadding = scrolled ? 4 : 8;
+  const fontSizeSlogan = scrolled ? "1.25rem" : "1.45rem";
   const navPadding = scrolled ? "1rem 2rem" : "2rem 2rem";
+
+  // Scroll fluide vers le haut ou la section à-propos avec offset pour header sticky
+  const scrollToWithOffset = (element, offset = 0, behavior = 'smooth') => {
+    const y = element.getBoundingClientRect().top + window.pageYOffset + offset;
+    window.scrollTo({ top: y, behavior });
+  };
+
+  const handleAccueilClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate("/", { state: { forceScrollTop: true } });
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate("/", { state: { forceScrollTop: true } });
+    }
+  };
+
+  const handleAProposClick = (e) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const section = document.getElementById("a-propos");
+      if (section) {
+        scrollToWithOffset(section, -(headerHeight + 12), 'smooth');
+      }
+    } else {
+      navigate("/", { state: { scrollToAPropos: true } });
+    }
+  };
+
+  // Corrige le scroll infini : on nettoie l'état après usage
+  useEffect(() => {
+    if (location.pathname === "/" && location.state) {
+      if (location.state.scrollToAPropos) {
+        setTimeout(() => {
+          const section = document.getElementById("a-propos");
+          if (section) {
+            scrollToWithOffset(section, -(headerHeight + 12), 'auto');
+          }
+          // Nettoie l'état pour éviter le scroll infini
+          navigate("/", { replace: true });
+        }, 100);
+      } else if (location.state.forceScrollTop) {
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'auto' });
+          // Nettoie l'état pour éviter le scroll infini
+          navigate("/", { replace: true });
+        }, 100);
+      }
+    }
+  }, [location, headerHeight, navigate]);
 
   return (
     <header style={{
@@ -37,7 +95,7 @@ function Header() {
       top: 0,
       zIndex: 100,
       padding: 0,
-      transition: 'all .22s cubic-bezier(.4,0,.2,1)',
+      transition: 'all 0.22s cubic-bezier(.4,0,.2,1)',
       boxShadow: scrolled ? '0 2px 16px rgba(0,0,0,0.07)' : 'none',
       height: headerHeight,
       display: 'flex',
@@ -55,13 +113,13 @@ function Header() {
         boxSizing: 'border-box',
         transition: 'padding 0.22s cubic-bezier(.4,0,.2,1)'
       }}>
-        {/* Logo + Nom + Slogan */}
-        <Link to="/" style={{ display: "flex", alignItems: "center", textDecoration: "none", userSelect: 'none', height: '100%' }}>
+        {/* Logo + Slogan */}
+        <a href="/" onClick={handleLogoClick} style={{ display: "flex", alignItems: "center", textDecoration: "none", userSelect: 'none', height: '100%', cursor: 'pointer' }}>
           <div style={{
             background: "rgba(248,245,238,0.2)",
             borderRadius: "50%",
             boxShadow: "0 2px 18px rgba(0,0,0,0.13)",
-            padding: scrolled ? 4 : 8, // padding réduit
+            padding: logoPadding,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -69,8 +127,8 @@ function Header() {
             marginTop: 4,
             marginBottom: 4,
             transition: "box-shadow 0.2s, background 0.2s, padding 0.22s cubic-bezier(.4,0,.2,1)",
-            height: logoSize + 2 * (scrolled ? 4 : 8),
-            minWidth: logoSize + 2 * (scrolled ? 4 : 8),
+            height: logoSize + 2 * logoPadding,
+            minWidth: logoSize + 2 * logoPadding,
             boxSizing: 'border-box',
           }}>
             <img
@@ -80,14 +138,11 @@ function Header() {
             />
           </div>
           <div style={{ userSelect: 'text', cursor: 'pointer', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%' }}>
-            <div style={{ fontWeight: "bold", fontSize: fontSizeTitle, color: "#222", lineHeight: 1, transition: 'font-size 0.22s' }}>
-              JS Bouchard Ébénisterie
-            </div>
-            <div style={{ fontSize: fontSizeSlogan, color: "#222", transition: 'font-size 0.22s' }}>
+            <div style={{ fontSize: fontSizeSlogan, color: "#222", fontWeight: 'bold', transition: 'font-size 0.22s, font-weight 0.22s' }}>
               Ébénisterie sur mesure
             </div>
           </div>
-        </Link>
+        </a>
         {/* Menu de navigation */}
         <nav style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
           <ul style={{
@@ -101,7 +156,9 @@ function Header() {
             height: '100%'
           }}>
             <li style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-              <Link
+              <a
+                href="/"
+                onClick={handleAccueilClick}
                 style={{
                   color: "#fff",
                   fontWeight: 500,
@@ -109,9 +166,8 @@ function Header() {
                   textDecoration: "none",
                   padding: "0.2em 0.3em",
                   transition: "color 0.18s",
-                  display: 'flex', alignItems: 'center', height: '100%'
+                  display: 'flex', alignItems: 'center', height: '100%', cursor: 'pointer'
                 }}
-                to="/"
                 onMouseEnter={e => e.currentTarget.style.setProperty('--underline-width', '100%')}
                 onMouseLeave={e => e.currentTarget.style.setProperty('--underline-width', '0%')}
               >
@@ -131,10 +187,12 @@ function Header() {
                   display: 'block',
                   pointerEvents: 'none'
                 }} />
-              </Link>
+              </a>
             </li>
             <li style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
               <a
+                href="#a-propos"
+                onClick={handleAProposClick}
                 style={{
                   color: "#fff",
                   fontWeight: 500,
@@ -142,9 +200,8 @@ function Header() {
                   textDecoration: "none",
                   padding: "0.2em 0.3em",
                   transition: "color 0.18s",
-                  display: 'flex', alignItems: 'center', height: '100%'
+                  display: 'flex', alignItems: 'center', height: '100%', cursor: 'pointer'
                 }}
-                href="#a-propos"
                 onMouseEnter={e => e.currentTarget.style.setProperty('--underline-width', '100%')}
                 onMouseLeave={e => e.currentTarget.style.setProperty('--underline-width', '0%')}
               >
@@ -206,7 +263,7 @@ function Header() {
                   background: "#f8f5ee",
                   color: "#62b9fb",
                   borderRadius: 24,
-                  padding: "0.1em 1.3em", // padding vertical réduit
+                  padding: "0.28em 1.3em",
                   fontWeight: 700,
                   boxShadow: location.pathname === "/contact" ? "0 2px 8px rgba(98,185,251,0.18)" : "none",
                   border: location.pathname === "/contact" ? "2px solid #62b9fb" : "none",
