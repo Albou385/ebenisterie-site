@@ -334,24 +334,97 @@ function Accueil() {
       </div>
 
       {/* 6. Zone de service */}
-      <div style={{ width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
+      <div style={{ ...bgA, width: '100vw', marginLeft: 'calc(50% - 50vw)' }}>
         <Container>
-          <section id="zone-service" style={{
-            borderRadius: "1.5em",
+          <section id="zone-service" className="service-card diff-card" style={{
+            borderRadius: "1.2em",
             background: '#fff',
-            border: '1.5px solid #e0e0e0',
-            boxShadow: '0 2px 12px rgba(98,185,251,0.07)',
+            boxShadow: "0 2px 12px rgba(98,185,251,0.06)",
             color: '#222',
             textAlign: "center",
-            padding: "2.5em 1em 2em 1em",
+            padding: "2em 1.2em",
             fontSize: "1.1em",
-            margin: sectionMargin,
-            borderTop: 'none'
+            margin: '0 0 1.2em 0',
+            transition: "transform 0.18s, box-shadow 0.18s",
+            width: "100%"
           }}>
-            <MapPin size={32} style={{ marginBottom: 8, color: '#62b9fb' }} />
-            <h3 style={{ marginBottom: 8, color: '#62b9fb' }}>Zone de service</h3>
-            Repentigny et les villes environnantes : <br />
-            <b>Laval, Mascouche, Terrebonne, L’Assomption</b>
+            <div className="diff-icon" style={{
+              background: "#f2f7fa",
+              borderRadius: "1em",
+              width: 60,
+              height: 60,
+              margin: "0 auto 1em",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "background 0.18s"
+            }}>
+              <MapPin size={38} color="#7495b7" className="diff-svg" style={{ transition: 'color 0.18s' }} />
+            </div>
+            <h3 style={{ marginBottom: 16, color: '#62b9fb', fontSize: '1.3em' }}>Zone desservie</h3>
+            <div style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              justifyContent: 'center', 
+              gap: '0.8em',
+              fontSize: '1.1em',
+              color: '#555'
+            }}>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                Repentigny
+              </span>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                Laval
+              </span>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                Mascouche
+              </span>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                Terrebonne
+              </span>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                L'Assomption
+              </span>
+              <span style={{ 
+                background: '#f8f5ee', 
+                padding: '0.5em 1em', 
+                borderRadius: '2em', 
+                border: '1px solid #e0e6ed',
+                fontWeight: '500'
+              }}>
+                Rive-Nord de Montréal
+              </span>
+            </div>
           </section>
         </Container>
       </div>
