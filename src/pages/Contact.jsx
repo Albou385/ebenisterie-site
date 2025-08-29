@@ -15,15 +15,17 @@ function Contact() {
           boxSizing: "border-box",
         }}
       >
-        <h1 style={{ fontSize: "2.7em", color: "#7495b7" }}>Contactez-nous</h1>
+        <h1 style={{ fontSize: "2.7em", color: "#7495b7", textAlign: "center" }}>Contactez-nous</h1>
         <p
           style={{
             fontSize: "1.25em",
             color: "#444",
             margin: "1.5em 0 2.5em 0",
+            textAlign: "center",
           }}
         >
-          Prêt à donner vie à votre projet d’ébénisterie ? Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé.
+          Prêt à donner vie à votre projet d'ébénisterie ? <br />
+          Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé.
         </p>
         <div
           style={{

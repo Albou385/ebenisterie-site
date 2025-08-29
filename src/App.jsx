@@ -5,6 +5,7 @@ import Accueil from './pages/Accueil';
 import APropos from './pages/APropos';
 import Realisations from './pages/Realisations';
 import Contact from './pages/Contact';
+import Merci from './pages/Merci';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/apropos" element={<APropos />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/merci" element={<Merci />} />
       </Routes>
       <Footer />
     </BrowserRouter>

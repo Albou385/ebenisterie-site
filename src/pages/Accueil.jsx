@@ -36,7 +36,7 @@ function Accueil() {
           <section id="hero" className="hero-section" style={{ display: 'flex', alignItems: 'center', gap: '2em', margin: sectionMargin, minHeight: '320px', borderRadius: '1.2em' }}>
             <div style={{ flex: '0 1 60%' }}>
               <h1 style={{ marginBottom: "0.5em", color: "#62b9fb", fontWeight: 700, fontSize: "3em" }}>JS Bouchard Ébénisterie</h1>
-              <h2 style={{ marginBottom: "0.5em", color: "#62b9fb", fontWeight: 600, fontSize: "2.2em" }}>
+              <h2 style={{ marginBottom: "0.5em", color: "#7495b7", fontWeight: 600, fontSize: "2.2em" }}>
                 Créations uniques en bois massif
               </h2>
               <p style={{ marginBottom: "1.5em", fontSize: "1.15em", textAlign: 'justify' }}>
@@ -240,7 +240,16 @@ function Accueil() {
               </p>
             </div>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-              <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: '280px', height: '280px', objectFit: 'contain', borderRadius: '50%', background: '#fff', boxShadow: '0 2px 12px rgba(98,185,251,0.10)' }} />
+              <div style={{
+                background: "rgba(0, 0, 0, 1)",
+                borderRadius: "50%",
+                padding: "2px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+                <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: '280px', height: '280px', objectFit: 'contain', borderRadius: '50%', background: '#fff', boxShadow: '0 2px 12px rgba(98,185,251,0.10)' }} />
+              </div>
             </div>
           </section>
         </Container>

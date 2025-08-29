@@ -19,7 +19,7 @@ function Header() {
   // Hauteurs et tailles adaptées pour garder tout centré et contenu
   const headerHeight = scrolled ? 84 : 120;
   const logoSize = scrolled ? 60 : 90;
-  const logoPadding = scrolled ? 4 : 8;
+  const logoPadding = 2;
   const fontSizeSlogan = scrolled ? "1.25rem" : "1.45rem";
   const navPadding = scrolled ? "1rem 2rem" : "2rem 2rem";
 
@@ -116,7 +116,7 @@ function Header() {
         {/* Logo + Slogan */}
         <a href="/" onClick={handleLogoClick} style={{ display: "flex", alignItems: "center", textDecoration: "none", userSelect: 'none', height: '100%', cursor: 'pointer' }}>
           <div style={{
-            background: "rgba(248,245,238,0.2)",
+            background: "rgba(0, 0, 0, 1)",
             borderRadius: "50%",
             boxShadow: "0 2px 18px rgba(0,0,0,0.13)",
             padding: logoPadding,

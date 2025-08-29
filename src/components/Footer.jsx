@@ -19,7 +19,7 @@ function Footer() {
   };
 
   return (
-    <footer style={{ marginTop: 0, background: "#62b9fb", paddingTop: "2.5rem", paddingBottom: "2rem", color: "#fff" }}>
+    <footer style={{ marginTop: 0, background: "#62b9fb", paddingTop: "1.5rem", paddingBottom: "1.5rem", color: "#fff" }}>
       <div style={{
         display: "flex",
         justifyContent: "space-between",
@@ -39,17 +39,17 @@ function Footer() {
               transition: "transform 0.2s ease"
             }}>
             <div className="logo-container" style={{
-              background: "rgba(248,245,238,0.2)",
+              background: "rgba(0, 0, 0, 1)",
               borderRadius: "50%",
               boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
-              padding: 16,
+              padding: 2,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginBottom: "1rem",
+              marginBottom: "0.8rem",
               transition: "all 0.2s ease"
             }}>
-              <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: 110, height: 110 }} />
+              <img src={logo} alt="Logo JS Bouchard Ébénisterie" style={{ width: 120, height: 120 }} />
             </div>
           </a>
         </div>
@@ -57,7 +57,7 @@ function Footer() {
         <div style={{ flex: 1, textAlign: "center" }}>
           <div style={{ 
             fontWeight: "700", 
-            marginBottom: "1.2rem", 
+            marginBottom: "1rem", 
             color: "#fff", 
             fontSize: "1.2em",
             letterSpacing: "0.5px"
@@ -70,7 +70,7 @@ function Footer() {
             justifyContent: "center", 
             gap: 10, 
             color: "#fff",
-            marginBottom: "1rem",
+            marginBottom: "0.8rem",
             fontSize: "1.05em"
           }}>
             <Mail size={20} style={{ marginRight: 6, opacity: 0.9 }} />
@@ -91,12 +91,12 @@ function Footer() {
             fontSize: "1.05em"
           }}>
             <Phone size={20} style={{ marginRight: 6, opacity: 0.9 }} />
-            <a href="tel:5152977921" style={{ 
+            <a href="tel:5142977921" style={{ 
               color: "#fff", 
               textDecoration: "none",
               transition: "opacity 0.2s ease"
             }}>
-              515-297-7921
+              514-297-7921
             </a>
           </div>
         </div>
@@ -104,12 +104,12 @@ function Footer() {
         <div style={{ flex: 1, textAlign: "right" }}>
           <div style={{ 
             fontWeight: "700", 
-            marginBottom: "1.2rem", 
+            marginBottom: "1rem", 
             color: "#fff", 
             fontSize: "1.2em",
             letterSpacing: "0.5px"
           }}>
-            Suivez-moi
+            Suivez-nous
           </div>
           <a
             href="https://www.facebook.com/profile.php?id=61559830014070&locale=fr_CA"
@@ -132,13 +132,13 @@ function Footer() {
       </div>
       {/* Mention légale tout en bas */}
       <div style={{
-        marginTop: "2.5rem",
+        marginTop: "0.5rem",
         borderTop: "1px solid rgba(255,255,255,0.25)",
-        paddingTop: "1.5rem",
+        paddingTop: "0.5rem",
         textAlign: "center",
         color: "#f8f5ee",
         fontSize: "1rem",
-        opacity: 0.9
+        opacity: 0.8
       }}>
         © 2025 JS Bouchard Ébénisterie — Tous droits réservés
       </div>
